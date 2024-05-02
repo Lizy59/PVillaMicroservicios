@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model MicroservicioWebApi.DTO.CuponDTO
+
+<div class="text-center">
+    <h2>Formulario</h2>
+    <h4>Agrega Cupones</h4>
+</div>
+
+@using (Html.BeginForm("Form", "Cupon", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(model => model.IdCupon)
+
+    <div class=" align-content-center justify-content-center">
+        <div>
+
+            <div class="row">
+                <div class="col-3">
+                    @Html.LabelFor(model => model.Codigo)
+                    @Html.TextBoxFor(model => model.Codigo)
+                </div>
+                <div class="col-3">
+                    @Html.LabelFor(model => model.Descuento)
+                    @Html.TextBoxFor(model => model.Descuento)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    @Html.LabelFor(model => model.CantidadMinima)
+                    @Html.TextBoxFor(model => model.CantidadMinima)
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+}
+

@@ -1,0 +1,41 @@
+﻿
+@{
+}
+<h1>Productos</h1>
+@model MicroservicioWebApi.DTO.ProductoDTO
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    @Html.ActionLink("Agregar producto", "Form", "Producto", new { area = "" }, new { @class = "btn btn-outline-primary col-2" })
+</div>
+ 
+
+<table class="table table-responsive table-secondary table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>IdProducto</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Categoria</th>
+            <th>Imagen</th>
+            <th></th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(MicroservicioWebApi.DTO.ProductoDTO producto in Model.Productos)
+        {
+            <tr>
+                <td><a class="btn btn-outline-success" href="@Url.ActionLink("Form", "Producto", new {IdProducto = producto.IdProducto})">Editar</a></td>
+                <td>@producto.IdProducto</td>
+                <td>@producto.NombreProducto</td>
+                <td>@producto.Precio</td>
+                <td>@producto.Categoria</td>
+                <td>@producto.UrlImagen</td>
+                <td><a class="btn btn-outline-danger" href="@Url.ActionLink("Delete", "Producto", new{IdProducto = producto.IdProducto})" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">Eliminar</a></td>
+            </tr>
+            
+        }
+
+       
+    </tbody>
+</table>

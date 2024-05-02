@@ -1,0 +1,56 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+@model MicroservicioWebApi.DTO.ProductoDTO
+
+<div class="text-center">
+    <h2>Formulario</h2>
+    <h4>Agrega productos</h4>
+</div>
+
+@using(Html.BeginForm("Form", "Producto", FormMethod.Post, new{@enctype="multipart/form-data"}))
+{
+    @Html.HiddenFor(model => model.IdProducto)
+
+    <div class=" container align-content-center justify-content-center">
+        <div class="form form-control">
+
+            <div class="row row-cols-2">
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.NombreProducto)
+                    @Html.TextBoxFor(model => model.NombreProducto)
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.Precio)
+                    @Html.TextBoxFor(model => model.Precio)
+                </div>
+            </div>
+            <div class="row row-cols-2">
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.Categoria)
+                    @Html.TextBoxFor(model => model.Categoria)
+
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.UrlImagen)
+                    @Html.TextBoxFor(model => model.UrlImagen)
+                </div>
+            </div>
+            <div class="row row-cols-2">
+                <div style="align-content: center" class="col-md-3">
+
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+}
